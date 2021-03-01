@@ -1,9 +1,12 @@
 const db_getdata = require('../models/db_getdata');
+const express = require('express');
+const app = express();
 
-const ss = async function(req, res) {
-    let data = await db_getdata.test_connection();
-    console.log(data);
+const middle = async function(req, res) {
+    let data = await db_getdata.get_customers();
+    console.log(req);
+    res.send(data);
 }
 module.exports = {
-    ss
+    middle
 }

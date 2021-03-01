@@ -1,9 +1,18 @@
 require('dotenv').config();
 
-module.exports =  {
+const database_config =  {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     port: process.env.DB_PORT,
+}
+const cors_options = {
+    origin: 'http://localhost:8081',
+    optionsSuccessStatus: 200
+}
+
+module.exports = {
+    database_config,
+    cors_options
 }
