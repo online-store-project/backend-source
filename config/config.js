@@ -8,7 +8,7 @@ const database_config =  {
     port: process.env.DB_PORT,
 }
 const cors_options = {
-    origin: 'http://localhost:8081',
+    origin: process.env.HOST_IP,
     optionsSuccessStatus: 200
 }
 
