@@ -7,6 +7,7 @@ const database_config =  {
     database: process.env.DB_DATABASE,
     port: process.env.DB_PORT,
 }
+//Mahdollisesti turha
 const cors_options = {
     origin: process.env.HOST_IP,
     optionsSuccessStatus: 200

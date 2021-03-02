@@ -2,7 +2,7 @@ function ajax_testi() {
     $(document).ready(() => {
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8081/api/getcustomers',
+            url: '/api/getcustomers',
             cache: false
         }).done((data) => {
             console.log("Haku toteutettu onnistuneesti!");

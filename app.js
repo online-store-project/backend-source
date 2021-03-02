@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -17,3 +16,5 @@ const server = app.listen(port, function() {
     const port = server.address().port;
     console.log("Server running at http://" + host + port);
 })
+
+require('dotenv').config();
