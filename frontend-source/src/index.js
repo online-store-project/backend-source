@@ -23,7 +23,7 @@ const do_product_text = (key, text, tag) => {
 const do_product_image = (imageURL, id) => {
     let src = route + imageURL;
     let img = $('<img></img>').attr('src', src).addClass('product-image');
-    let a = $('<a></a>').attr('href', '/api/getproducts?id=' + id).append(img);
+    let a = $('<a></a>').attr('href', '/api/getproduct/?id=' + id).append(img);
     let div = $('<div></div>').addClass('image-div').append(a);
     return div;
 }
