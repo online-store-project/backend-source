@@ -26,9 +26,33 @@ p{
     margin: 0;
     border-radius: 0.375em;
 }
-img{
-    width: 19.3em;
-    height: 19.3em;
+.product-image{
+    height: 17em;
+    padding: auto;
+    margin: auto;
+    align-items: center;
+}
+.products-up{
+    overflow: auto;
+}
+.product{
+    height: 19.7em;
+    width: 40em!important;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 0.375em;
+}
+.image-div{
     padding: 0;
+    height: 19.3em;
+}
+.product-info{
     margin: 0;
+    padding: 0;
+    font-size: 120%;
+}
+.product-text{
+    font-weight: bold;
 }

@@ -1,8 +1,8 @@
 const { mysql_connection } = require('./db_connection');
 
-const get_customers = () => {
+const dbget_products = () => {
     return new Promise(resolve => {
-            let sql = "SHOW TABLES";
+            let sql = "SELECT * FROM Products";
             mysql_connection.query(sql, (error, data) => {
                 if(error) throw error;
 
@@ -12,6 +12,12 @@ const get_customers = () => {
             })
     })
 }
+const dbget_product = () => {
+    return new Promise(resolve => {
+        let sql = "SELECT * FROM Products WHERE ProductID = ?";
+    })
+}
 module.exports = {
-    get_customers
+    dbget_products,
+    dbget_product
 }

@@ -1,9 +1,14 @@
 const db_getdata = require('../models/db_getdata');
 
-const middle = async function(req, res, next) {
-    let data = await db_getdata.get_customers();
+const get_products = async function(req, res) {
+    let data = await db_getdata.dbget_products();
     res.json(data);
 }
+const get_product = async function(req, res) {
+    let data = await db_getdata.dbget_product();
+}
+
 module.exports = {
-    middle
+    get_products,
+    get_product
 }
