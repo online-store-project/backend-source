@@ -14,3 +14,14 @@ function ajax_testi() {
         })
     })
 }
+function getImage() {
+    $(document).ready(() => {
+        let img = $('<img></img>').attr('src', '../images/chivas_regal.png');
+        //img.css({ 'width':'15.25em','height':'15.25em' });
+        $('#image-left').append(img);
+    })
+}
+function test() {
+    let elem = document.getElementById('products-up');
+    elem.scrollIntoView();
+}

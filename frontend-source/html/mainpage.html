@@ -1,16 +1,70 @@
 <!DOCTYPE html>
-    <html>
         <head>
             <title>
                 Mainpage
             </title>
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="../css/mainpage.css">
             <script type="application/javascript" src="../src/index.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         </head>
-        <body onload="ajax_testi()">
-            <h1>Verkkokauppa tulossa tähän!!!!</h1>
-            <button id="button">TestiButtoni</button>
-            <p id="testi"></p>
+        <body onload="test()">
+            <div class="jumbotron text-center bg-info">
+                <h1><strong>Viitakosken Viinakauppa</strong></h1>
+            </div>
+            <div class="space"></div>
+            <div class="row bg-primary nav">
+
+            </div>
+            <div class="space"></div>
+            <div class="row sect">
+                <div class="col-sm-2 bg-info" style="border-radius: 0.375em">
+
+                </div>
+                <div class="col-sm-10 bg-primary" style="border-radius: 0.375em">
+                    <div id="products-up" style="overflow: auto; white-space: nowrap">
+                        
+                        <div id="product" style="height: 19.7em; display:inline-block">
+                            <div style="padding: 0;display: inline-block">
+                                <img src="../images/chivas_regal.png">
+                            </div>
+                            <div style="margin: auto; display: inline-block">
+                                <p><strong>Product : Chivas Regal</strong></p>
+                                <p><strong>Description : Hyvä viski suoraan skotlannista</strong></p>
+                                <p><strong>Price : 44$</strong></p>
+                                <p><strong>Tuotteita varastossa : 9</strong></p>
+                            </div>
+                        </div>
+                        <div id="product" style="height: 19.7em;display: inline-block">
+                            <div style="padding: 0;display: inline-block">
+                                <img src="../images/chivas_regal.png">
+                            </div>
+                            <div style="margin: auto; display: inline-block">
+                                <p><strong>Product : Chivas Regal</strong></p>
+                                <p><strong>Description : Hyvä viski suoraan skotlannista</strong></p>
+                                <p><strong>Price : 44$</strong></p>
+                                <p><strong>Tuotteita varastossa : 9</strong></p>
+                            </div>
+                        </div>
+                        <div id="product" style="height: 19.7em;display: inline-block">
+                            <div style="padding: 0;display: inline-block">
+                                <img src="../images/chivas_regal.png">
+                            </div>
+                            <div style="margin: auto; display: inline-block">
+                                <p><strong>Product : Chivas Regal</strong></p>
+                                <p><strong>Description : Hyvä viski suoraan skotlannista</strong></p>
+                                <p><strong>Price : 44$</strong></p>
+                                <p><strong>Tuotteita varastossa : 9</strong></p>
+                            </div>
+                        </div>
+                            
+                    </div>
+                    <div class="row" id="products-down" style="overflow: auto; white-space: nowrap;">
+                        
+                    </div>
+                </div>
+            </div>
         </body>
     </html>
