@@ -30,12 +30,30 @@ const do_product_image = (imageURL, id) => {
 const do_html_product = (data) => {
     let main_div = document.getElementById('products-up');
     let id = 0;
+    for(let product of data) {
+        console.log(product.name);
+        let html = `
+            <div class="product">
+                <div class="image-div">
+                    <a href="/api/getproduct/?id=${product.productID}">
+                        <img class="product-image" src="${route}${product.imageURL}">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <p class="product-text">Tuote : ${product.name}</p>
+                    <p class="product-text">Hinta : ${product.price}$</p>
+                    <p class="product-text">Tuotteen kuvaus : ${product.description}</p>
+                </div>
+            </div>
+        `;
+        main_div.innerHTML += html;
+    }
     
-    $.each(data, (index, product) => {
+    /*$.each(data, (index, product) => {
         let text_div = $('<div></div>').addClass('product-info');
         let product_div = $('<div></div>').addClass('product');
         let image_div;
-
+        
         for(let key in product) {
             switch(key) {
                 case 'productID':
@@ -60,5 +78,5 @@ const do_html_product = (data) => {
         image_div.appendTo(product_div);
         text_div.appendTo(product_div);
         product_div.appendTo(main_div);
-    })
+    })*/
 }
