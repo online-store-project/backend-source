@@ -1,7 +1,6 @@
 body{
-    width: 80%;
+    width: 100%;
     margin: auto;
-    background-color: bisque;
 }
 p{
     margin: 0.2em;
@@ -14,24 +13,13 @@ section{
     height: 39em;
 }
 .product-image{
-    height: 17em;
+    height: 37em;
     padding: auto;
     margin: auto;
     align-items: center;
 }
-.products-left, .products-right{
-    height: 39em;
-    width: 48em;
-    overflow-y: auto;
-    width: 50%;
-}
-.products{
-    flex-direction: row;
-    display: flex;
-    border-radius: 0.375em;
-}
 .product{
-    height: 19.7em;
+    height: 39em;
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -42,10 +30,16 @@ section{
     padding: 0;
 }
 .product-info{
-    margin: 0;
-    padding: 0;
-    font-size: 120%;
+    
+    padding: 2.5em 0;
+    font-size: 180%;
+    align-self: flex-end;
 }
 .product-text{
     font-weight: bold;
+}
+.btn{
+    margin-top: 1em;
+    border-radius: 5em;
+    margin-left: 0.5em;
 }

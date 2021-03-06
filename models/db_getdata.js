@@ -7,20 +7,18 @@ const dbget_products = () => {
                 if(error) throw error;
 
                 console.log("Succesfully connected to MySQL!");
-                resolve(data);
+                resolve(JSON.stringify(data));
             })
     })
 }
 const dbget_product = (product_id) => {
     return new Promise(resolve => {
-        console.log(product_id);
         let sql = "SELECT * FROM Products WHERE productID = ?";
         mysql_connection.query(sql, [product_id], (error, data) => {
             if(error) throw error;
 
             console.log("Succesfully connected to MySQL!");
-            console.log(data);
-            resolve(data);
+            resolve(JSON.stringify(data));
         })
     })
 }
