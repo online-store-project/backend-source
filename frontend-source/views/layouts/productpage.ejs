@@ -12,7 +12,6 @@
             <link rel="stylesheet" type="text/css" href="/css/partials.css">
             <script src="/src/productpage.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            
             <script>
                 let data = '<%- data %>';
                 let product = JSON.parse(data);
@@ -20,7 +19,9 @@
         </head>
         <body onload="get_product(product)">
             <section>
-                    <%- include('../partials/sidebar.ejs') %>
+                <div class="col-sm-2 bg-info sidebar">
+                    <a class="a" href="#">Testi</a>
+                </div>
                     <div class="col-sm-10 bg-primary" style="border-radius: 0.375em">
                         <div id="product" class="product"></div>
                     </div>

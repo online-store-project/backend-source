@@ -1,6 +1,7 @@
 body{
-    width: 100%;
+    width: 80%;
     margin: auto;
+    background-color:darkgray
 }
 p{
     margin: 0.2em;
@@ -30,7 +31,6 @@ section{
     padding: 0;
 }
 .product-info{
-    
     padding: 2.5em 0;
     font-size: 180%;
     align-self: flex-end;
