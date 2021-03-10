@@ -16,14 +16,12 @@ const get_products = (products) => {
     do_products(array_left, products_left);
     do_products(array_right, products_right);
 }
-const split_array = (array, div) => {
-}
 const do_products = (array, div) => {
     for(let product of array) {
         let html = `
             <div class="product">
                 <div class="image-div">
-                    <a href="/api/productpage/${product.productID}">
+                    <a href="/api/productpage/${product.productId}">
                         <img class="product-image" src="/images/${product.imageURL}">
                     </a>
                 </div>

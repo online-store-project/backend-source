@@ -12,8 +12,7 @@
             <script src="/src/mainpage.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
-                let data = '<%- data %>';
-                let products = JSON.parse(data);
+                let products = JSON.parse('<%- data %>');
             </script>
         </head>
         <body onload="get_products(products)">

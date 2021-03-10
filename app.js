@@ -16,7 +16,6 @@ app.use('/css', express.static(path.join(__dirname, 'frontend-source', 'css')));
 app.use('/images', express.static(path.join(__dirname, 'frontend-source', 'images')));
 app.use('/api', routes);
 
-
 const server = app.listen(port, function() {
     const host = server.address().address;
     const port = server.address().port;
