@@ -1,7 +1,7 @@
-const Product = require('../models/Product');
+const products = require('../models/product');
 
 const find_all = (req, res) => {
-    Product.find_all((err, data) => {
+    products.find_all((err, data) => {
         if(err)
             res.status(500).send({
                 message:
@@ -11,7 +11,7 @@ const find_all = (req, res) => {
     })
 }
 const find_one = (req, res) => {
-    Product.find_one(req.params.id, (err, data) => {
+    products.find_one(req.params.id, (err, data) => {
         if(err)
             res.status(500).send({
                 message:
@@ -21,7 +21,17 @@ const find_one = (req, res) => {
     })
 }
 const find_by_search = (req, res) => {
-    Product.find_by_search(req.query.search_term, (err, data) => {
+    products.find_by_search(req.query.search_term, (err, data) => {
+        if(err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error"
+            })
+        else res.render('layouts/mainpage', { data: data });
+    })
+}
+const find_category = (req, res) => {
+    products.find_category(req.params.id, (err, data) => {
         if(err)
             res.status(500).send({
                 message:
@@ -34,4 +44,5 @@ module.exports = {
     find_all,
     find_one,
     find_by_search,
+    find_category
 }

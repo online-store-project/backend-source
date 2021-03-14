@@ -19,13 +19,13 @@ ul{
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 a:link, a:visited {
-    color:tomato;
-
+    color:black;
 }
 a:link:active, a:visited:active {
-    color:black;
+    color:white;
 }
 .form-inline{
     align-self: center;
@@ -36,13 +36,6 @@ a:link:active, a:visited:active {
     border-radius: 0.375em;
     text-align: center;
     padding: 0;
-}
-.a{
-    display: block;
-    background-color: #33331a;
-    color:white;
-    border-radius: 0.375em;
-    border: 1px solid black;
 }
 footer{
     height: 10em;

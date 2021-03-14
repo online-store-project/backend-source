@@ -1,12 +1,6 @@
 const { mysql_connection } = require('./db_connection');
 
-const Product = (product) => {
-    this.imageURL = product.imageURL;
-    this.name = product.name;
-    this.price = product.price;
-    this.description = product.description;
-}
-Product.find_all = result => {
+const find_all = result => {
     let sql = "SELECT * FROM Product";
         mysql_connection.query(sql, (err, data) => {
             
@@ -15,35 +9,49 @@ Product.find_all = result => {
                 result(null, err);
                 return;
             }
-            //console.log("Products : ", data);
             result(null, JSON.stringify(data));
         })
 }
-Product.find_one = (id, result) => {
+const find_one = (id, result) => {
     let sql = "SELECT * FROM Product WHERE productId = ?";
+    console.log(id);
     mysql_connection.query(sql, [id], (err, data) => {
         if(err) {
             console.log("Error : " + error);
             result(null, err);
             return;
         }
-        console.log("Product : ", data);
+        console.log(data);
         result(null, JSON.stringify(data));
     })
 }
-Product.find_by_search = (search_term, result) => {
+const find_by_search = (search_term, result) => {
     let term = `%${search_term}%`;
     let sql = "SELECT * FROM Product WHERE name LIKE ?";
     console.log(sql);
     mysql_connection.query(sql, [term], (err, data) => {
-        
         if(err) {
             console.log("Error : " + error);
             result(null, err);
             return;
         }
-        //console.log(data);
         result(null, JSON.stringify(data));
     })
 }
-module.exports = Product;
+const find_category = (category_id, result) => {
+    let sql = "SELECT * FROM Product WHERE product_typeId = ?";
+    mysql_connection.query(sql, [category_id], (err, data) => {
+        if(err) {
+            console.log("Error : " + error);
+            result(null, err);
+            return;
+        }
+        result(null, JSON.stringify(data));
+    })
+}
+module.exports = {
+    find_all,
+    find_by_search,
+    find_one,
+    find_category
+}
