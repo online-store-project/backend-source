@@ -1,25 +1,19 @@
-<!--<nav>
-    <div class="space"></div>
-            <div class="row bg-primary nav">
 
-            </div>
-    <div class="space"></div>
-</nav>-->
 <nav class="navbar navbar-expand-lg navbar-light">
     
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/api/mainpage">Home <span class="sr-only"></span></a>
+                <a class="nav-link" href="/online-store/mainpage">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbardrop">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop">
                     Katergoriat
                 </a>
                 <div class="dropdown-menu" id="categories">
-                    <a class="dropdown-item" href="/api/search_category/1/Viskit">Viskit</a>
-                    <a class="dropdown-item" href="/api/search_category/2/Oluet">Oluet</a>
-                    <a class="dropdown-item" href="/api/search_category/3/Viinit">Viinit</a>
+                    <a class="dropdown-item" href="/online-store/search_category/1/Viskit">Viskit</a>
+                    <a class="dropdown-item" href="/online-store/search_category/2/Oluet">Oluet</a>
+                    <a class="dropdown-item" href="/online-store/search_category/3/Viinit">Viinit</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -30,8 +24,8 @@
             </li>
         </ul>
     </div>
-    <form class="form-inline" method="GET" action="/api/search_products">
+    <form class="form-inline" method="GET" action="/online-store/search_products">
         <input type="text" name="search_term" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-  </nav>
+</nav>

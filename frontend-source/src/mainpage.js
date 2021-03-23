@@ -23,7 +23,7 @@ const do_products = (array, div) => {
         $(div).append(
             $('<div></div>').addClass('product').append(
                 $('<div></div>').addClass('image-div').append(
-                    $('<a></a>').attr('href', '/api/productpage/' + product.productId + '/' + product.name).append(
+                    $('<a></a>').attr('href', '/online-store/productpage/' + product.productId + '/' + product.name).append(
                         $('<img></img>').attr('src', '/images/' + product.imageURL).addClass('product-image')
                     )
                 ),
