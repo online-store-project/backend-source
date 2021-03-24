@@ -1,4 +1,4 @@
-const products = require('../models/product');
+const products = require('../models/Product');
 
 const find_all = (req, res) => {
     products.find_all((err, data) => {
