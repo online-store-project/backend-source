@@ -7,7 +7,7 @@ const productpage_load = (product) => {
                 ),
                 $('<div></div>').addClass('product-info').append(
                     $('<p></p>').addClass('product-text').text(property.name),
-                    $('<p></p>').addClass('product-text').text(property.price),
+                    $('<p></p>').addClass('product-text').text(property.price + '$'),
                     $('<p></p>').addClass('product-text').text(property.description),
                     $('<button></button>').addClass('btn btn-success').text('Lisää tuote ostoskoriin').click(() => {
 

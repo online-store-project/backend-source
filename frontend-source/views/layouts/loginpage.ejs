@@ -17,20 +17,22 @@
         <body onload="adjust_partials()">
             <section class="bg-info">
                 <div class="box">
-                    <form method="POST" action="/online-store/login">
-                        <div class="row">
-                            <p>Sähköpostiosoite</p>
-                            <input type="text" style="width: 10em;">
-                        </div>
-                        <div class="row">
-                            <p>Salasana</p>
-                            <input type="password" style="width: 10em;">
+                    <form class="form" method="POST" action="/online-store/login">
+                        <div class="grid-container">
+                            <div class="item1">Sähköpostiosoite</div>
+                            <div class="item2">
+                                <input type="text" placeholder="Anna sähköpostiosoite">
+                            </div>
+                            <div class="item3">Salasana</div>
+                            <div class="item4">
+                                <input type="password" placeholder="Anna salasana">
+                            </div>
+                            <div class="item5">
+                                <input type="submit" value="Kirjaudu">
+                            </div>
                         </div>
                     </form>
                 </div>
-                
             </section>
-            
-                    
         </body>
     </html>

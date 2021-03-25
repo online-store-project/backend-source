@@ -1,9 +1,13 @@
 const users = require('../models/User');
 
-const login_page = (req, res) => {
-    res.render('layouts/loginpage');
+const login = (req, res) => {
+    res.render('layouts/mainpage');
+}
+const registry = (req, res) => {
+    res.render('layouts/mainpage');
 }
 
 module.exports = {
-    login_page
+    login,
+    registry
 }

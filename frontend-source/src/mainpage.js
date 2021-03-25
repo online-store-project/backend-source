@@ -29,7 +29,7 @@ const do_products = (array, div) => {
                 ),
                 $('<div></div>').addClass('product-info').append(
                     $('<p></p>').addClass('product-text').text('Tuote : ' + product.name),
-                    $('<p></p>').addClass('product-text').text('Hinta : ' + product.price),
+                    $('<p></p>').addClass('product-text').text('Hinta : ' + product.price + '$'),
                     $('<p></p>').addClass('product-text').text('Tuotteen kuvaus : ' + product.description)
                 )
             )

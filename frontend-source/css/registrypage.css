@@ -39,14 +39,16 @@ section{
 .grid-container > div{
     font-size: 120%;
     font-weight: bold;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
-.item5{
+.item13{
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
     padding-top: 1em;
 
 }
-.item2, .item4{
+.item{
     text-align: center;
 }
