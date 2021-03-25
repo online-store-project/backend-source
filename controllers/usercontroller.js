@@ -4,7 +4,7 @@ const login = (req, res) => {
     res.render('layouts/mainpage');
 }
 const registry = (req, res) => {
-    res.render('layouts/mainpage');
+    users.create_user()
 }
 
 module.exports = {
