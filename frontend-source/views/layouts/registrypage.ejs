@@ -10,38 +10,38 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="/css/registrypage.css">
             <link rel="stylesheet" type="text/css" href="/css/partials.css">
-            <script src="/src/registrypage.js"></script>
+            <script src="/src/registry.js"></script>
             <script src="/src/partials.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         </head>
         <body onload="adjust_partials()">
             <section class="bg-info">
                 <div class="box">
-                    <form class="form" method="POST" action="/online-store/registry">
+                    <form class="form" method="POST" action="/online-store/registry" onsubmit="return verify_registry()">
                         <div class="grid-container">
                             <div class="item1">Etunimi</div>
                             <div class="item">
-                                <input type="text" placeholder="Anna etunimi">
+                                <input type="text" name="firstname" required="name" pattern="[A-Za-z]{2,20}" title="Vain kirjaimia 3-20kpl">
                             </div>
                             <div class="item3">Sukunimi</div>
                             <div class="item">
-                                <input type="text" placeholder="Anna sukunimi">
+                                <input type="text" name="lastname" required="name" pattern="[A-Za-z]{2,30}" title="Vain kirjaimia 3-30kpl">
                             </div>
                             <div class="item5">Käyttäjänimi</div>
                             <div class="item">
-                                <input type="text" placeholder="Anna käyttäjänimi">
+                                <input type="text" name="username" required="name" pattern="[A-Za-z0-9]{2,20}" title="Vain kirjaimia 3-20kpl">
                             </div>
                             <div class="item7">Sähköpostiosoite</div>
                             <div class="item">
-                                <input type="text" placeholder="Anna sähköpostiosoite">
+                                <input type="text" name="email" required="name" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Aseta sähköpostiosoite oikeaan muotoon">
                             </div>
                             <div class="item9">Salasana</div>
                             <div class="item">
-                                <input type="password" placeholder="Anna salasana">
+                                <input type="password" name="pwd" id="pwd" required="password" pattern=".{8,}">
                             </div>
                             <div class="item11">Vahvista salasana</div>
                             <div class="item">
-                                <input type="text" placeholder="Vahvista salasana">
+                                <input type="password" name="confirm_pwd" id="confirm_pwd" required="password" pattern=".{8,}">
                             </div>
                             <div class="item13">
                                 <input type="submit" value="Kirjaudu">
