@@ -21,11 +21,11 @@
                         <div class="grid-container">
                             <div class="item1">Sähköpostiosoite</div>
                             <div class="item2">
-                                <input type="text" placeholder="Anna sähköpostiosoite">
+                                <input type="text" name="email" required="name" pattern=".{5,40}">
                             </div>
                             <div class="item3">Salasana</div>
                             <div class="item4">
-                                <input type="password" placeholder="Anna salasana">
+                                <input type="password" name="pwd" required="password" pattern=".{8,40}" title="Merkkejä täytyy olla 8-40kpl">
                             </div>
                             <div class="item5">
                                 <input type="submit" value="Kirjaudu">

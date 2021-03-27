@@ -8,7 +8,6 @@ const mysql_connection = mysql.createConnection({
     database: config.database_config.database,
     port: config.database_config.port
 })
-
 mysql_connection.connect(error => {
     if(error) throw error;
     console.log("MySQL Connected Succesfully");
