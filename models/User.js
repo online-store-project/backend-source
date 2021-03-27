@@ -36,7 +36,7 @@ const login_user = (user, result) => {
         }
         for(let value of data) {
             generate_hash(user.pwd, value.salt, (err, hashed_pwd) => {
-                if(hashed_pwd == value.hash) {
+                if(hashed_pwd === value.hash) {
                     result(null, 'Kirjautuminen onnistui!');
                     return;
                 } else {
