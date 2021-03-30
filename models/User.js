@@ -23,36 +23,37 @@ const create_user = (user, result) => {
     })
 }
 const login_user = (user, result) => {
-    let sql = "SELECT email,hash,salt FROM User WHERE email = ?";
+    let sql = "SELECT username,email,hash,salt FROM User WHERE email = ?";
     mysql_connection.query(sql, [user.email], (err, data) => {
         if(err) {
             console.log("Error : " + err);
-            result(null, err);
+            result('Tietokanta virhe', null);
             return;
         }
         if(data.length == 0) {
-            result(null, "Väärä sähköpostiosoite");
+            result('Tarkista kirjautumistiedot', null);
             return;
         }
         for(let value of data) {
             generate_hash(user.pwd, value.salt, (err, hashed_pwd) => {
                 if(hashed_pwd === value.hash) {
-                    result(null, 'Kirjautuminen onnistui!');
+                    result(null, value.username);
                     return;
                 } else {
-                    result(null, "Väärä salasana");
+                    result('Tarkista kirjautumistiedot', null);
                     return;
                 }
             })
         }
     })
 }
-const generate_hash = (password, salt, result) => {
+function generate_hash(password, salt, result) {
     let hash = crypto.createHmac('sha512', salt);
     hash.update(password);
     let hashed_pwd = hash.digest('hex');
     result(null, hashed_pwd);
 }
+
 module.exports = {
     create_user,
     login_user

@@ -15,17 +15,15 @@ section{
 .box{
     margin: auto;
     width: 60%;
-    background-color: white;
+    background-color: gainsboro;
     height: 35em;
     border-radius: 0.375em;
-    padding: 5em;
 }
 .form{
     margin: auto;
     height: 100%;
     width: 100%;
     padding: 2em;
-    background-color: aqua;
     border-radius: 0.375em;
     display: grid;
     justify-content: center;

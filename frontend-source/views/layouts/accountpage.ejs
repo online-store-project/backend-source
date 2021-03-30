@@ -8,16 +8,19 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="/css/registrypage.css">
+            <link rel="stylesheet" type="text/css" href="/css/accountpage.css">
             <link rel="stylesheet" type="text/css" href="/css/partials.css">
-            <script src="/src/registry.js"></script>
+            <script src="/src/accountpage.js"></script>
             <script src="/src/partials.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         </head>
+        <script>
+            
+        </script>
         <body onload="adjust_partials(), check_username()">
             <section class="bg-info">
                 <div class="box">
-                    <form class="form" method="POST" action="/online-store/registry" onsubmit="return verify_registry()">
+                    <div class="form">
                         <div class="grid-container">
                             <div class="item1">Etunimi</div>
                             <div class="item">
@@ -47,7 +50,7 @@
                                 <input type="submit" value="Rekisteröidy">
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </section>
         </body>

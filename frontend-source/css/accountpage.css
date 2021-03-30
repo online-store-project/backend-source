@@ -6,7 +6,7 @@ body{
 p{
     margin: 0.2em;
     font-weight: bold;
-    color: red;
+    width: 30%;
 }
 section{
     border-radius: 0.375em;
@@ -16,8 +16,9 @@ section{
     margin: auto;
     width: 60%;
     background-color: gainsboro;
-    height: 25em;
+    height: 35em;
     border-radius: 0.375em;
+
 }
 .form{
     margin: auto;
@@ -37,14 +38,16 @@ section{
 .grid-container > div{
     font-size: 120%;
     font-weight: bold;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
-.item5{
+.item13{
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
     padding-top: 1em;
 
 }
-.item2, .item4{
+.item{
     text-align: center;
 }

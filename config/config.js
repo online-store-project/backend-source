@@ -12,8 +12,10 @@ const cors_options = {
     origin: process.env.HOST_IP,
     optionsSuccessStatus: 200
 }
+const jwt_token = process.env.SECRET_TOKEN;
 
 module.exports = {
     database_config,
-    cors_options
+    cors_options,
+    jwt_token
 }

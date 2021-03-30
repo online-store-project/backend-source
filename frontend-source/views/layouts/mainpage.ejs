@@ -15,9 +15,10 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
                 let products = JSON.parse('<%- data %>');
+                let token = "ksdjfkj";
             </script>
         </head>
-        <body onload="mainpage_load(products), adjust_partials()">
+        <body onload="mainpage_load(products), adjust_partials(), check_username()">
             <section>
                 <div class="col-sm-2 bg-info sidebar">
                 </div>

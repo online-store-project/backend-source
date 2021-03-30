@@ -1,4 +1,10 @@
 const mainpage_load = (products) => {
+    const now = new Date();
+    const item = {
+        value: "testihomma",
+        expiry: now.getTime() + 600
+    }
+    localStorage.setItem('key', JSON.stringify(item));
     $(document).ready(() => {
         let products_left = document.getElementById('products-left');
         let products_right = document.getElementById('products-right');

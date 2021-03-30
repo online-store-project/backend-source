@@ -14,11 +14,14 @@
             <script src="/src/partials.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         </head>
-        <body onload="adjust_partials()">
+        <script>
+            let errormessage = JSON.parse('<%- data %>');
+        </script>
+        <body onload="adjust_partials(), check_errormessage(errormessage), check_username()">
             <section class="bg-info">
                 <div class="box">
                     <form class="form" method="POST" action="/online-store/login">
-                        <div class="grid-container">
+                        <div id="test" class="grid-container">
                             <div class="item1">Sähköpostiosoite</div>
                             <div class="item2">
                                 <input type="text" name="email" required="name" pattern=".{5,40}">
