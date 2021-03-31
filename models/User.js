@@ -47,6 +47,38 @@ const login_user = (user, result) => {
         }
     })
 }
+const get_userinformation = (username, result) => {
+    let sql = "SELECT username,email,firstname,lastname from User WHERE username = ?";
+    mysql_connection.query(sql, [username], (error, data) => {
+        if(error) {
+            console.log("Error : " + error);
+            result("Some database error", nul);
+            return;
+        }
+        if(data.length == 0) {
+            result("Käyttäjää ei löytynyt", null);
+            return;
+        }
+        result(null, JSON.stringify(data));
+    })
+}
+const update_userinformation = (username, user, result) => {
+    let sql = "UPDATE User SET firstname = ?, lastname=? WHERE username=?";
+    mysql_connection.query(sql, [user.firstname, user.lastname, username], (error, data) => {
+        if(error) {
+            console.log("Error : " + error);
+            result("Some database error", null);
+            return;
+        }
+        if(data.affectedRows === 1) {
+            result(null, "Käyttäjätiedot muutettu onnistuneesti");
+            return;
+        } else {
+            result("Käyttäjätietojen muuttaminen ei onnistunut", null);
+        }
+        
+    })
+}
 function generate_hash(password, salt, result) {
     let hash = crypto.createHmac('sha512', salt);
     hash.update(password);
@@ -56,5 +88,7 @@ function generate_hash(password, salt, result) {
 
 module.exports = {
     create_user,
-    login_user
+    login_user, 
+    get_userinformation,
+    update_userinformation
 }

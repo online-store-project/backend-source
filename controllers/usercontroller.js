@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
 const users = require('../models/User');
-const { jwt_token } = require('../config/config');
-const jwt_authentication = require('../config/jwt_authentication');
+const { jwt_token } = require('../config/config.js');
 
 const registrypage = (req, res) => {
     res.render('layouts/registrypage');
 }
-const registry = (req, res, next) => {
+const registry = (req, res) => {
     users.create_user(req.body, (err, data) => {
         if(err) {
             res.status(500).send({
@@ -14,7 +13,6 @@ const registry = (req, res, next) => {
             })
         } else {
             res.redirect('/online-store/mainpage');
-            next();
         }
     })
 }
@@ -26,24 +24,44 @@ const login = (req, res, next) => {
         if(error) {
             res.render('layouts/loginpage', { data: JSON.stringify(error) });
         } else {
-            console.log(username);
+            res.clearCookie('access_token');
             let token =jwt.sign(username, jwt_token);
-            res.redirect('/online-store/mainpage?token=' + token);
-            next();
+            res
+                .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
+                .redirect('/online-store/mainpage');
         }
     });
 }
 const accountpage = (req, res) => {
-    res.render('layouts/accountpage');
+    users.get_userinformation(req.username, (error, userinformation) => {
+        if(error) {
+            res.status(500).send({
+                message:
+                    error.message || "Some error when searching user-data"
+            })
+        } else {
+            res.render('layouts/accountpage', { data: userinformation, message: "" });
+        }
+    })
 }
-function authenticate_token() {
-    const auth_header = req.headers['authorization'];
-    const token = auth_header.split(' ')[1];
+const update_account = (req, res) => {
+    users.update_userinformation(req.username, req.body, (error, message) => {
+        if(error) {
+            //Korjaa tämä
+            res.render('layouts/accountpage', { data: "Korjaa tämä", message: error })
+        }
+        else {
+            //Korjaa tämä
+            res.render('layouts/accountpage', { data: "Korjaa tämä", message: message })
+        }
+    })
 }
+
 module.exports = {
     registrypage,
     registry,
     loginpage,
     login,
-    accountpage
+    accountpage,
+    update_account
 }

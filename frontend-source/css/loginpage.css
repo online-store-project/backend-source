@@ -38,7 +38,7 @@ section{
     font-size: 120%;
     font-weight: bold;
 }
-.item5{
+.submit{
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
@@ -47,4 +47,9 @@ section{
 }
 .item2, .item4{
     text-align: center;
+}
+input[type=text],input[type=password]{
+    border-radius: 0.375em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
 }

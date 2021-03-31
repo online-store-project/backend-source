@@ -1,10 +1,6 @@
 const products = require('../models/Product');
 
 const find_all = (req, res) => {
-    if(req.query.token) {
-        console.log(req.query.token);
-        console.log(req.query.token.length);
-    }
     products.find_all((err, data) => {
         if(err)
             res.status(500).send({

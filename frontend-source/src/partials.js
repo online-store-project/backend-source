@@ -15,14 +15,18 @@ const check_username = () => {
         }
     }
 }
-const own_pages = (token) => {
+const get_accountpage = () => {
     $(document).ready(
         $.ajax({
             type: "POST",
             url: "/online-store/account",
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
+            cache: false,
+        }).done(() => {
+            console.log("Loading complete");
+        }).fail((error) => {
+            console.log(error);
+        }).always(() => {
+            console.log("Complete")
         })
     )
 }

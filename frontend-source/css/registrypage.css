@@ -40,7 +40,7 @@ section{
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
-.item13{
+.submit{
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
@@ -49,4 +49,9 @@ section{
 }
 .item{
     text-align: center;
+}
+input[type=text],input[type=password]{
+    border-radius: 0.375em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
 }

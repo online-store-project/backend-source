@@ -1,7 +1,8 @@
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
+const express_layouts = require('express-ejs-layouts');
 const app = express();
 const path = require('path');
+const cookie_parser = require('cookie-parser');
 const routes = require('./routes');
 const port = process.env.HOST_PORT || 3000;
 
@@ -10,7 +11,8 @@ app.set('views', path.join(__dirname, 'frontend-source', 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(expressLayouts);
+app.use(express_layouts);
+app.use(cookie_parser());
 
 app.use(express.static(path.join(__dirname, 'frontend-source')));
 app.use('/src', express.static(path.join(__dirname, 'frontend-source', 'src')));

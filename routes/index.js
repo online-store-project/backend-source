@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const products = require('../controllers/productcontroller.js');
-const users = require('../controllers/usercontroller.js');
+const products = require('../controllers/productcontroller');
+const users = require('../controllers/usercontroller');
+const auth = require('./middleware/auth');
 
 router.get('/mainpage', products.find_all);
 router.get('/productpage/:id/:name', products.find_one);
@@ -13,5 +14,7 @@ router.post('/login', users.login);
 router.get('/registry', users.registrypage);
 router.post('/registry', users.registry);
 
-router.post('/account', users.accountpage);
+router.get('/account', auth.check_authentication, users.accountpage);
+router.post('/update-account', auth.check_authentication, users.update_account);
+
 module.exports = router;
