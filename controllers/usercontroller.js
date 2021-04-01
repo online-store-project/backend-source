@@ -17,7 +17,7 @@ const registry = (req, res) => {
     })
 }
 const loginpage = (req, res) => {
-    res.render('layouts/loginpage', { data: JSON.stringify(null) });
+    res.render('layouts/loginpage');
 }
 const login = (req, res, next) => {
     users.login_user(req.body, (error, username) => {
@@ -40,7 +40,7 @@ const accountpage = (req, res) => {
                     error.message || "Some error when searching user-data"
             })
         } else {
-            res.render('layouts/accountpage', { data: userinformation, message: "" });
+            res.render('layouts/accountpage', { data: userinformation });
         }
     })
 }
@@ -48,11 +48,11 @@ const update_account = (req, res) => {
     users.update_userinformation(req.username, req.body, (error, message) => {
         if(error) {
             //Korjaa tämä
-            res.render('layouts/accountpage', { data: "Korjaa tämä", message: error })
+            res.render('layouts/accountpage', { data: JSON.stringify(""), message: error })
         }
         else {
             //Korjaa tämä
-            res.render('layouts/accountpage', { data: "Korjaa tämä", message: message })
+            res.render('layouts/accountpage', { data: JSON.stringify(""), message: message })
         }
     })
 }

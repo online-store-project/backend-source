@@ -55,6 +55,7 @@ const get_userinformation = (username, result) => {
             result("Some database error", nul);
             return;
         }
+        console.log(data);
         if(data.length == 0) {
             result("Käyttäjää ei löytynyt", null);
             return;
@@ -63,13 +64,14 @@ const get_userinformation = (username, result) => {
     })
 }
 const update_userinformation = (username, user, result) => {
-    let sql = "UPDATE User SET firstname = ?, lastname=? WHERE username=?";
+    let sql = "UPDATE User SET firstname = ?, lastname = ? WHERE username = ?";
     mysql_connection.query(sql, [user.firstname, user.lastname, username], (error, data) => {
         if(error) {
             console.log("Error : " + error);
             result("Some database error", null);
             return;
         }
+        console.log(data);
         if(data.affectedRows === 1) {
             result(null, "Käyttäjätiedot muutettu onnistuneesti");
             return;

@@ -16,6 +16,11 @@
         </head>
         <script>
             let user = JSON.parse('<%- data %>');
+
+            '<% if (locals.message) { %>'
+                let value = '<%- message %>';
+                
+            '<% } %>'
         </script>
         <body onload="adjust_partials(), check_username(), adjust_accountpage(user)">
             <section class="bg-info">
