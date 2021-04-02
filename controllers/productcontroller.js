@@ -9,7 +9,7 @@ const find_all = (req, res) => {
             })
         else res
             .cookie('testi', 'testivalue')
-            .render('layouts/mainpage', { data: data });
+            .render('layouts/mainpage', { data: data, title: "Mainpage" });
     })
 }
 const find_one = (req, res) => {
@@ -19,7 +19,7 @@ const find_one = (req, res) => {
                 message:
                     err.message || "Some error"
             })
-        else res.render('layouts/productpage', { data: data });
+        else res.render('layouts/productpage', { data: data, title: "Productpage" });
     })
 }
 const find_by_search = (req, res) => {
@@ -29,7 +29,7 @@ const find_by_search = (req, res) => {
                 message:
                     err.message || "Some error"
             })
-        else res.render('layouts/mainpage', { data: data });
+        else res.render('layouts/mainpage', { data: data, title: "Mainpage" });
     })
 }
 const find_category = (req, res) => {
@@ -39,7 +39,7 @@ const find_category = (req, res) => {
                 message:
                     err.message || "Some error"
             })
-        else res.render('layouts/mainpage', { data: data });
+        else res.render('layouts/mainpage', { data: data, title: "Mainpage" });
     })
 }
 module.exports = {

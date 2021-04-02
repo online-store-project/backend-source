@@ -1,7 +1,7 @@
 const adjust_partials = () => {
     $(document).ready(() => {
         adjust_categoriesbar();
-        is_user_loggedin((username) => {
+        check_cookie((username) => {
             if(username) {
                 create_navlink('/online-store/account', 'Omat sivut');
                 create_navlink('/online-store/logout', 'Kirjaudu ulos');
@@ -14,8 +14,7 @@ const adjust_partials = () => {
         })
     })
 }
-
-function is_user_loggedin(result) {
+function check_cookie(result) {
     let cookie_value = document.cookie
         .split('; ')
         .find(row => row.startsWith('username='));
@@ -23,9 +22,6 @@ function is_user_loggedin(result) {
         let username = cookie_value.split('=')[1];
         result(username);
     } else result(null);
-}
-function check_cookie() {
-
 }
 function create_navlink(href, text) {
     $('#navbar').append(

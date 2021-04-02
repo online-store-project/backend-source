@@ -2,7 +2,7 @@ const users = require('../models/User');
 const auth = require('../routes/middleware/auth');
 
 const registrypage = (req, res) => {
-    res.render('layouts/registrypage');
+    res.render('layouts/registrypage', { title: "Registrypage" });
 }
 const registry = (req, res) => {
     users.create_user(req.body, (err, data) => {
@@ -15,7 +15,7 @@ const registry = (req, res) => {
     })
 }
 const loginpage = (req, res) => {
-    res.render('layouts/loginpage');
+    res.render('layouts/loginpage', { title: "Loginpage" });
 }
 const login = (req, res, next) => {
     users.login_user(req.body, (error, user) => {
@@ -45,7 +45,7 @@ const accountpage = (req, res) => {
                     error || "Some error when searching user-data"
             })
         }
-        else res.render('layouts/accountpage', { data: userinformation });
+        else res.render('layouts/accountpage', { data: userinformation, title: "Accountpage" });
     })
 }
 const update_account = (req, res) => {
@@ -57,7 +57,7 @@ const update_account = (req, res) => {
             })
         }
         users.get_userinformation(req.username, (err, userinformation) => {
-            res.render('layouts/accountpage', { data: userinformation, message: message });
+            res.render('layouts/accountpage', { data: userinformation, message: message, title: "Accountpage" });
         })
     })
 }
