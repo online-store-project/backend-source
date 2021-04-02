@@ -75,14 +75,8 @@ const update_userinformation = (username, user, result) => {
             result("Some database error", null);
             return;
         }
-        console.log(data);
-        if(data.affectedRows === 1) {
-            result(null, "Käyttäjätiedot muutettu onnistuneesti");
-            return;
-        } else {
-            result("Käyttäjätietojen muuttaminen ei onnistunut", null);
-        }
-        
+        if(data.affectedRows === 1) result(null, "Käyttäjätiedot muutettu onnistuneesti");
+        else                        result("Käyttäjätietojen muuttaminen ei onnistunut", null);  
     })
 }
 function generate_hash(password, salt, result) {

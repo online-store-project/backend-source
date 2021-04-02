@@ -1,7 +1,7 @@
 const adjust_accountpage = (user, message) => {
     $(document).ready(() => {
         get_userinformation(user);
-        if(message != "") {
+        if(message != null) {
             print_message(message);
         }
     })
@@ -17,7 +17,7 @@ const get_userinformation = (user) => {
 const print_message = (message) => {
     $('#grid-container').append(
         $('<div></div>').addClass('submit').append(
-            $('<p></p>').class('message').text(message)
+            $('<p></p>').addClass('message').text(message)
         )
     )
 }

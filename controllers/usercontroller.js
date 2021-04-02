@@ -10,9 +10,8 @@ const registry = (req, res) => {
             res.status(500).send({
                 message : err || "Some error"
             })
-        } else {
-            res.redirect('/online-store/mainpage');
         }
+        else res.redirect('/online-store/mainpage');
     })
 }
 const loginpage = (req, res) => {
@@ -29,11 +28,10 @@ const login = (req, res, next) => {
                     message:
                         err || "Some error"
                 })
-            } else {
-                res
+            }
+            else res
                     .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
                     .redirect('/online-store/mainpage');
-            }
         })
     });
 }
@@ -45,15 +43,14 @@ const accountpage = (req, res) => {
                 message:
                     error || "Some error when searching user-data"
             })
-        } else {
-            res.render('layouts/accountpage', { data: userinformation });
         }
+        else res.render('layouts/accountpage', { data: userinformation });
     })
 }
 const update_account = (req, res) => {
     users.update_userinformation(req.username, req.body, (error, message) => {
         if(error) {
-            res.status(500).send({
+            return res.status(500).send({
                 message:
                     error || "Some error when updating user-data"
             })
