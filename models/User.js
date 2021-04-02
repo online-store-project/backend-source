@@ -23,7 +23,7 @@ const create_user = (user, result) => {
     })
 }
 const login_user = (user, result) => {
-    let sql = "SELECT username,email,hash,salt FROM User WHERE email = ?";
+    let sql = "SELECT userId,username,email,hash,salt FROM User WHERE email = ?";
     mysql_connection.query(sql, [user.email], (err, data) => {
         if(err) {
             console.log("Error : " + err);
@@ -37,7 +37,11 @@ const login_user = (user, result) => {
         for(let value of data) {
             generate_hash(user.pwd, value.salt, (err, hashed_pwd) => {
                 if(hashed_pwd === value.hash) {
-                    result(null, value.username);
+                    let token_information = {
+                        user_id: value.userId,
+                        username: value.username
+                    }
+                    result(null, token_information);
                     return;
                 } else {
                     result('Tarkista kirjautumistiedot', null);
@@ -55,7 +59,6 @@ const get_userinformation = (username, result) => {
             result("Some database error", nul);
             return;
         }
-        console.log(data);
         if(data.length == 0) {
             result("Käyttäjää ei löytynyt", null);
             return;
