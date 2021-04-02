@@ -1,32 +1,41 @@
 const adjust_partials = () => {
     $(document).ready(() => {
-        $('#navbardrop').click(() => {
-            $('#categories').slideToggle(200);
+        adjust_categoriesbar();
+        is_user_loggedin((username) => {
+            if(username) {
+                create_navlink('/online-store/account', 'Omat sivut');
+                create_navlink('/online-store/logout', 'Kirjaudu ulos');
+                console.log(username);
+                //Tähän tulee usernamen lisäys sivulle johonkin kohtaan
+            } else {
+                create_navlink('/online-store/login', 'Kirjaudu');
+                create_navlink('/online-store/registry', 'Rekisteröidy');
+            }
         })
     })
 }
-const check_username = () => {
-    let now = new Date();
-    if(localStorage.getItem('user')) {
-        let username = JSON.parse(localStorage.getItem('user'));
-        if(now.getTime() > username.expiry) localStorage.removeItem('user')
-        else {
-            console.log(user.username);
-        }
-    }
+
+function is_user_loggedin(result) {
+    let cookie_value = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='));
+    if(cookie_value) {
+        let username = cookie_value.split('=')[1];
+        result(username);
+    } else result(null);
 }
-const get_accountpage = () => {
-    $(document).ready(
-        $.ajax({
-            type: "POST",
-            url: "/online-store/account",
-            cache: false,
-        }).done(() => {
-            console.log("Loading complete");
-        }).fail((error) => {
-            console.log(error);
-        }).always(() => {
-            console.log("Complete")
-        })
+function check_cookie() {
+
+}
+function create_navlink(href, text) {
+    $('#navbar').append(
+        $('<li></li>').addClass('nav-item').append(
+            $('<a></a>').addClass('nav-link').attr('href', href).text(text)
+        )
     )
+}
+function adjust_categoriesbar() {
+    $('#navbardrop').click(() => {
+        $('#categories').slideToggle(200);
+    })
 }

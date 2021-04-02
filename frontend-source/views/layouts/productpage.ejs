@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>
-                Product Page
-            </title>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="/css/productpage.css">
-            <link rel="stylesheet" type="text/css" href="/css/partials.css">
-            <script src="/src/productpage.js"></script>
-            <script src="/src/partials.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script>
-                let product = JSON.parse('<%- data %>');
-            </script>
-        </head>
-        <body onload="productpage_load(product), adjust_partials(), check_username()">
-            <section>
-                <div class="col-sm-2 bg-info sidebar">
-                </div>
-                    <div class="col-sm-10 bg-primary" style="border-radius: 0.375em">
-                        <div id="product" class="product"></div>
-                    </div>
-            </section>
-        </body>
-    </html>
+
+<link rel="stylesheet" type="text/css" href="/css/productpage.css">
+<script src="/src/productpage.js"></script>
+<script>
+    let product = JSON.parse('<%- data %>');
+    productpage_load(product);
+</script>
+<section>
+    <div class="col-sm-2 bg-info sidebar">
+    </div>
+        <div class="col-sm-10 bg-primary" style="border-radius: 0.375em">
+            <div id="product" class="product"></div>
+        </div>
+</section>

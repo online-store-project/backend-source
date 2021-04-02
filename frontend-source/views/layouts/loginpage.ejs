@@ -1,43 +1,27 @@
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>
-                Mainpage
-            </title>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="/css/loginpage.css">
-            <link rel="stylesheet" type="text/css" href="/css/partials.css">
-            <script src="/src/loginpage.js"></script>
-            <script src="/src/partials.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        </head>
-        <script>
-            '<% if(locals.errormessage) { %>';
-                check_errormessage(JSON.parse('<%- data %>'));
-            '<% } %>';
-        </script>
-        <body onload="adjust_partials(), check_username()">
-            <section class="bg-info">
-                <div class="box">
-                    <form class="form" method="POST" action="/online-store/login">
-                        <div id="test" class="grid-container">
-                            <div class="item1">Sähköpostiosoite</div>
-                            <div class="item2">
-                                <input type="text" name="email" required="name" pattern=".{5,40}">
-                            </div>
-                            <div class="item3">Salasana</div>
-                            <div class="item4">
-                                <input type="password" name="pwd" required="password" pattern=".{8,40}" title="Merkkejä täytyy olla 8-40kpl">
-                            </div>
-                            <div class="submit">
-                                <input type="submit" value="Kirjaudu">
-                            </div>
-                        </div>
-                    </form>
+
+<link rel="stylesheet" type="text/css" href="/css/loginpage.css">
+<script src="/src/loginpage.js"></script>
+<script>
+    '<% if(locals.message) { %>';
+        check_errormessage('<%- message %>');
+    '<% } %>';
+</script>
+<section class="bg-info">
+    <div class="box">
+        <form class="form" method="POST" action="/online-store/login">
+            <div id="test" class="grid-container">
+                <div class="item1">Sähköpostiosoite</div>
+                <div class="item2">
+                    <input type="text" name="email" required="name" pattern=".{5,40}">
                 </div>
-            </section>
-        </body>
-    </html>
+                <div class="item3">Salasana</div>
+                <div class="item4">
+                    <input type="password" name="pwd" required="password" pattern=".{8,40}" title="Merkkejä täytyy olla 8-40kpl">
+                </div>
+                <div class="item5">
+                    <input type="submit" value="Kirjaudu">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

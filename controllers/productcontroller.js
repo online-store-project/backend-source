@@ -7,7 +7,9 @@ const find_all = (req, res) => {
                 message:
                     err.message || "Some error"
             })
-        else res.render('layouts/mainpage', { data: data });
+        else res
+            .cookie('testi', 'testivalue')
+            .render('layouts/mainpage', { data: data });
     })
 }
 const find_one = (req, res) => {

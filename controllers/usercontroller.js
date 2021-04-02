@@ -20,7 +20,7 @@ const loginpage = (req, res) => {
 const login = (req, res, next) => {
     users.login_user(req.body, (error, user) => {
         if(error) {
-            return res.render('layouts/loginpage', { data: JSON.stringify(error) });
+            return res.render('layouts/loginpage', { message: error });
         }
         auth.sign_token(user, (err, token) => {
             if(err) {
@@ -31,6 +31,7 @@ const login = (req, res, next) => {
             }
             else res
                     .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
+                    .cookie('username', user.username, { maxAge: 3000000 })
                     .redirect('/online-store/mainpage');
         })
     });
@@ -60,6 +61,12 @@ const update_account = (req, res) => {
         })
     })
 }
+const clear_cookies = (req, res) => {
+    res
+        .clearCookie('access_token')
+        .clearCookie('username')
+        .redirect('/online-store/mainpage');
+}
 
 module.exports = {
     registrypage,
@@ -67,5 +74,6 @@ module.exports = {
     loginpage,
     login,
     accountpage,
-    update_account
+    update_account,
+    clear_cookies
 }

@@ -1,54 +1,39 @@
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>
-                Mainpage
-            </title>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="/css/registrypage.css">
-            <link rel="stylesheet" type="text/css" href="/css/partials.css">
-            <script src="/src/registry.js"></script>
-            <script src="/src/partials.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        </head>
-        <body onload="adjust_partials(), check_username()">
-            <section class="bg-info">
-                <div class="box">
-                    <form class="form" method="POST" action="/online-store/registry" onsubmit="return verify_registry()">
-                        <div class="grid-container">
-                            <div class="item1">Etunimi</div>
-                            <div class="item">
-                                <input type="text" name="firstname" required="name" pattern="[A-Za-z]{2,20}" title="Vain kirjaimia 3-20kpl">
-                            </div>
-                            <div class="item3">Sukunimi</div>
-                            <div class="item">
-                                <input type="text" name="lastname" required="name" pattern="[A-Za-z]{2,30}" title="Vain kirjaimia 3-30kpl">
-                            </div>
-                            <div class="item5">Käyttäjänimi</div>
-                            <div class="item">
-                                <input type="text" name="username" required="name" pattern="[A-Za-z0-9]{2,20}" title="Vain kirjaimia 3-20kpl">
-                            </div>
-                            <div class="item7">Sähköpostiosoite</div>
-                            <div class="item">
-                                <input type="text" name="email" required="name" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,40}$" title="Aseta sähköpostiosoite oikeaan muotoon">
-                            </div>
-                            <div class="item9">Salasana</div>
-                            <div class="item">
-                                <input type="password" name="pwd" id="pwd" required="password" pattern=".{8,40}">
-                            </div>
-                            <div class="item11">Vahvista salasana</div>
-                            <div class="item">
-                                <input type="password" name="confirm_pwd" id="confirm_pwd" required="password" pattern=".{8,40}">
-                            </div>
-                            <div class="submit">
-                                <input type="submit" value="Rekisteröidy">
-                            </div>
-                        </div>
-                    </form>
+
+<link rel="stylesheet" type="text/css" href="/css/registrypage.css">
+<script src="/src/registry.js"></script>
+
+<section class="bg-info">
+    <div class="box">
+        <form class="form" method="POST" action="/online-store/registry" onsubmit="return verify_registry()">
+            <div class="grid-container">
+                <div class="item1">Etunimi</div>
+                <div class="item">
+                    <input type="text" name="firstname" required="name" pattern="[A-Za-z]{2,20}" title="Vain kirjaimia 3-20kpl">
                 </div>
-            </section>
-        </body>
-    </html>
+                <div class="item3">Sukunimi</div>
+                <div class="item">
+                    <input type="text" name="lastname" required="name" pattern="[A-Za-z]{2,30}" title="Vain kirjaimia 3-30kpl">
+                </div>
+                <div class="item5">Käyttäjänimi</div>
+                <div class="item">
+                    <input type="text" name="username" required="name" pattern="[A-Za-z0-9]{2,20}" title="Vain kirjaimia 3-20kpl">
+                </div>
+                <div class="item7">Sähköpostiosoite</div>
+                <div class="item">
+                    <input type="text" name="email" required="name" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,40}$" title="Aseta sähköpostiosoite oikeaan muotoon">
+                </div>
+                <div class="item9">Salasana</div>
+                <div class="item">
+                    <input type="password" name="pwd" id="pwd" required="password" pattern=".{8,40}">
+                </div>
+                <div class="item11">Vahvista salasana</div>
+                <div class="item">
+                    <input type="password" name="confirm_pwd" id="confirm_pwd" required="password" pattern=".{8,40}">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Rekisteröidy">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
