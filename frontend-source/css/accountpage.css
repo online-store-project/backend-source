@@ -46,7 +46,6 @@ section{
     grid-column-end: 3;
     text-align: center;
     padding-top: 1em;
-
 }
 .item{
     text-align: center;
@@ -59,4 +58,9 @@ input[type=text]{
 input[type=submit]{
     border-radius: 0.375em;
     width: 5em;
+}
+.message{
+    margin: 0.2em;
+    font-weight: bold;
+    color: red;
 }

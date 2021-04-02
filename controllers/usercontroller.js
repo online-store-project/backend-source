@@ -21,30 +21,29 @@ const loginpage = (req, res) => {
 const login = (req, res, next) => {
     users.login_user(req.body, (error, user) => {
         if(error) {
-            res.render('layouts/loginpage', { data: JSON.stringify(error) });
-        } else {
-            auth.sign_token(user, (err, token) => {
-                if(err) {
-                    res.status(500).send({
-                        message:
-                            err || "Some error"
-                    })
-                } else {
-                    res
-                        .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
-                        .redirect('/online-store/mainpage');
-                }
-            })
-            
+            return res.render('layouts/loginpage', { data: JSON.stringify(error) });
         }
+        auth.sign_token(user, (err, token) => {
+            if(err) {
+                res.status(500).send({
+                    message:
+                        err || "Some error"
+                })
+            } else {
+                res
+                    .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
+                    .redirect('/online-store/mainpage');
+            }
+        })
     });
 }
 const accountpage = (req, res) => {
     users.get_userinformation(req.username, (error, userinformation) => {
+        console.log(req.username);
         if(error) {
             res.status(500).send({
                 message:
-                    error.message || "Some error when searching user-data"
+                    error || "Some error when searching user-data"
             })
         } else {
             res.render('layouts/accountpage', { data: userinformation });
@@ -54,13 +53,14 @@ const accountpage = (req, res) => {
 const update_account = (req, res) => {
     users.update_userinformation(req.username, req.body, (error, message) => {
         if(error) {
-            //Korjaa tämä
-            res.render('layouts/accountpage', { data: JSON.stringify(""), message: error })
+            res.status(500).send({
+                message:
+                    error || "Some error when updating user-data"
+            })
         }
-        else {
-            //Korjaa tämä
-            res.render('layouts/accountpage', { data: JSON.stringify(""), message: message })
-        }
+        users.get_userinformation(req.username, (err, userinformation) => {
+            res.render('layouts/accountpage', { data: userinformation, message: message });
+        })
     })
 }
 

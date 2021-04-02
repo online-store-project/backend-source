@@ -3,17 +3,16 @@ const path = require('path');
 const { jwt_token } = require('../../config/config.js');
 
 const check_authentication = (req, res, next) => {
-    if(!req.cookies.access_token) {
-        res.redirect('/online-store/login');
-    }
     if(req.cookies.access_token) {
-        verify_token(req.cookies.access_token, (error, username) => {
+        verify_token(req.cookies.access_token, (error, user) => {
             if(error) {
                 res.redirect('/online-store/login');
             }
-            req.username = username;
+            req.username = user.username;
             next();
         })
+    } else {
+        res.redirect('/online-store/login');
     }
 }
 const sign_token = (user, result) => {

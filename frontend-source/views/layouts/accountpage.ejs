@@ -16,17 +16,17 @@
         </head>
         <script>
             let user = JSON.parse('<%- data %>');
+            let message = "";
 
             '<% if (locals.message) { %>'
-                let value = '<%- message %>';
-                
+                    message = '<%- message %>';
             '<% } %>'
         </script>
-        <body onload="adjust_partials(), check_username(), adjust_accountpage(user)">
+        <body onload="adjust_partials(), check_username(), adjust_accountpage(user, message)">
             <section class="bg-info">
                 <div class="box">
                     <form class="form" method="POST" action="/online-store/update-account">
-                        <div class="grid-container">
+                        <div id="grid-container" class="grid-container">
                             <div class="item1">Käyttäjänimi</div>
                             <div class="item">
                                 <input type="text" id="username" readonly>

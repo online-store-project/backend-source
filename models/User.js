@@ -52,11 +52,12 @@ const login_user = (user, result) => {
     })
 }
 const get_userinformation = (username, result) => {
+    console.log(username);
     let sql = "SELECT username,email,firstname,lastname from User WHERE username = ?";
     mysql_connection.query(sql, [username], (error, data) => {
         if(error) {
             console.log("Error : " + error);
-            result("Some database error", nul);
+            result("Some database error", null);
             return;
         }
         if(data.length == 0) {
