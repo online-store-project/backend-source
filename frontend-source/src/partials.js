@@ -5,8 +5,8 @@ const adjust_partials = () => {
             if(username) {
                 create_navlink('/online-store/account', 'Omat sivut');
                 create_navlink('/online-store/logout', 'Kirjaudu ulos');
-                console.log(username);
-                //Tähän tulee usernamen lisäys sivulle johonkin kohtaan
+                create_username(username);
+                
             } else {
                 create_navlink('/online-store/login', 'Kirjaudu');
                 create_navlink('/online-store/registry', 'Rekisteröidy');
@@ -34,4 +34,7 @@ function adjust_categoriesbar() {
     $('#navbardrop').click(() => {
         $('#categories').slideToggle(200);
     })
+}
+function create_username(username) {
+    $('<p></p>').addClass('username').text(username).insertBefore('#shop-name');
 }
