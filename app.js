@@ -5,7 +5,6 @@ const path = require('path');
 const cookie_parser = require('cookie-parser');
 const routes = require('./routes');
 const port = process.env.HOST_PORT || 3000;
-console.log("testi");
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'frontend-source', 'views'));
