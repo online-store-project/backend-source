@@ -36,5 +36,14 @@ function adjust_categoriesbar() {
     })
 }
 function create_username(username) {
-    $('<p></p>').addClass('username').text(username).insertBefore('#shop-name');
+    $('<div></div>').addClass('test').append(
+        $('<p></p>').addClass('username').text(username),
+        $('<a></a>').attr('href', '/online-store/shopping-cart').append(
+            $('<i></i>').addClass('fas fa-shopping-cart')
+        )
+            
+    ).insertBefore('#shop-name');
+}
+function create_shoppingcart_link() {
+    
 }

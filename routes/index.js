@@ -16,7 +16,8 @@ router.post('/registry', users.registry);
 
 router.get('/account', auth.check_authentication, users.accountpage);
 router.post('/update-account', auth.check_authentication, users.update_account);
-
 router.get('/logout', users.clear_cookies);
+
+router.get('/shopping-cart', auth.check_authentication, users.shopping_cart);
 
 module.exports = router;

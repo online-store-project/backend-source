@@ -14,15 +14,15 @@ h1.footer{
     text-align: center
 }
 p.username{
-    margin: 0.5em 1em 0 0;
-    text-align: right;
     font-style: italic;
     font-weight: bold;
-    color:cadetblue
+    color:cadetblue;
+    font-size: 120%;
+    margin-right: 0.5em;
 }
 .navbar{
-    margin: 0!important;
-    border-radius: 0.375em!important;
+    margin: 0;
+    border-radius: 0.375em;
     background-color: #ccccff;
     align-items: center;
 }
@@ -52,4 +52,15 @@ footer{
     height: 10em;
     background-color: #ccccb3;
     border-radius: 0.375em;
+}
+.test{
+    display: flex;
+    flex-direction: row;
+    margin: 0.5em 1em 0 0;
+    justify-content: right;
+    align-items: center;
+}
+.fa-shopping-cart{
+    font-size: 120%;
+    color:cadetblue;
 }

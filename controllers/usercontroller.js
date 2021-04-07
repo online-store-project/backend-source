@@ -19,33 +19,31 @@ const loginpage = (req, res) => {
 }
 const login = (req, res, next) => {
     users.login_user(req.body, (error, user) => {
-        if(error) {
-            return res.render('layouts/loginpage', { message: error });
-        }
+        if(error) return res.render('layouts/loginpage', { message: error, title: "Loginpage" });
+
         auth.sign_token(user, (err, token) => {
             if(err) {
-                res.status(500).send({
+                return res.status(500).send({
                     message:
                         err || "Some error"
                 })
             }
-            else res
-                    .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
-                    .cookie('username', user.username, { maxAge: 3000000 })
-                    .redirect('/online-store/mainpage');
+            res
+                .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
+                .cookie('username', user.username, { maxAge: 3000000 })
+                .redirect('/online-store/mainpage');
         })
     });
 }
 const accountpage = (req, res) => {
     users.get_userinformation(req.username, (error, userinformation) => {
-        console.log(req.username);
         if(error) {
-            res.status(500).send({
+            return res.status(500).send({
                 message:
                     error || "Some error when searching user-data"
             })
         }
-        else res.render('layouts/accountpage', { data: userinformation, title: "Accountpage" });
+        res.render('layouts/accountpage', { data: userinformation, title: "Accountpage" });
     })
 }
 const update_account = (req, res) => {
@@ -67,6 +65,9 @@ const clear_cookies = (req, res) => {
         .clearCookie('username')
         .redirect('/online-store/mainpage');
 }
+const shopping_cart = (req, res) => {
+
+}
 
 module.exports = {
     registrypage,
@@ -75,5 +76,6 @@ module.exports = {
     login,
     accountpage,
     update_account,
-    clear_cookies
+    clear_cookies,
+    shopping_cart
 }
