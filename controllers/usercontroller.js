@@ -29,8 +29,8 @@ const login = (req, res, next) => {
                 })
             }
             res
-                .cookie('access_token', token, { maxAge: 3000000, httpOnly: true })
-                .cookie('username', user.username, { maxAge: 3000000 })
+                .cookie('access_token', token, { maxAge: 6000000, httpOnly: true })
+                .cookie('username', user.username, { maxAge: 6000000 })
                 .redirect('/online-store/mainpage');
         })
     });
@@ -66,7 +66,8 @@ const clear_cookies = (req, res) => {
         .redirect('/online-store/mainpage');
 }
 const shopping_cart = (req, res) => {
-
+    console.log("testi");
+    res.send('huhuu');
 }
 
 module.exports = {

@@ -18,7 +18,7 @@ const check_authentication = (req, res, next) => {
 const sign_token = (user, result) => {
     if(user) {
         let token =jwt.sign(user, jwt_token, {
-            expiresIn: 3000
+            expiresIn: 6000
         });
         result(null, token);
     } else {
