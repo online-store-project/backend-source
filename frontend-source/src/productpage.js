@@ -10,7 +10,16 @@ const productpage_load = (product) => {
                     $('<p></p>').addClass('product-text').text(property.price + '$'),
                     $('<p></p>').addClass('product-text').text(property.description),
                     $('<button></button>').addClass('btn btn-success').text('Lisää tuote ostoskoriin').click(() => {
-
+                        $.ajax({
+                            url: '/online-store/addtobasket',
+                            type: 'POST',
+                            cache: false,
+                            data: { product_id: property.productId }
+                        }).done((data) => {
+                            console.log(data);
+                        }).fail(() => {
+                            window.alert("Can't add product to basket");
+                        })
                     })
                 ).appendTo('#product')
             )

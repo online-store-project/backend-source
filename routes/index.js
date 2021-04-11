@@ -18,7 +18,7 @@ router.get('/account', auth.check_authentication, users.accountpage);
 router.post('/update-account', auth.check_authentication, users.update_account);
 router.get('/logout', users.clear_cookies);
 
-router.get('/basket', products.basketpage);
-router.post('/addtobasket', products.addto_basket);
+router.get('/basket', auth.check_authentication, products.basketpage);
+router.post('/addtobasket', auth.check_authentication, products.addto_basket);
 
 module.exports = router;

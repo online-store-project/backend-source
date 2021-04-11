@@ -44,14 +44,13 @@ const find_category = (category_id, result) => {
     })
 }
 const find_basket_products = (products, result) => {
-    console.log(products.join());
     let sql = `SELECT * FROM Product WHERE productId IN (${mysql_connection.format(products.join())})`;
     mysql_connection.query(sql, (err, data) => {
         if(err) {
             console.log("Error : " + err);
             return result("Couldn't find products", null)
         }
-        result(null, JSON.stringify(data));
+        result(null, data);
     })
 }
 module.exports = {

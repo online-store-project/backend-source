@@ -48,21 +48,38 @@ const basketpage = (req, res) => {
     if(!req.session.shopping_cart) return res.render('layouts/basketpage', { title: "Basketpage" });
 
     console.log(req.session.shopping_cart);
-    products.find_basket_products(req.session.shopping_cart, (error, data) => {
+    let array = [];
+    for(let value of req.session.shopping_cart) {
+        array.push(value.product_id);
+    }
+
+    products.find_basket_products(array, (error, data) => {
         if(error) {
             return res.status(500).send({
                 message:
                     error.message || "Some error"
             })
         }
-        console.log(data);
-        res.render('layouts/basketpage', { data: data, title: "Basketpage" });
+        data.forEach(product => {   //lisätään product-objeckteille count-ominaisuus
+            if(typeof product === "object") {
+                req.session.shopping_cart.forEach(e => {
+                    console.log(e.product_id);
+                    if(e.product_id == product.productId) {
+                        product["count"] = e.count;
+                    }
+                })
+            }
+        })
+        res.render('layouts/basketpage', { data: JSON.stringify(data), title: "Basketpage" });
     })
 }
 const addto_basket = (req, res) => {
+    console.log(req.body.product_id)
+
+    if(!req.body.product_id) return res.send('No product chosen');
+
     let shopping_cart = [];
     let check_number = 0;
-    if(!req.body.product_id) return res.send('No product chosen');
 
     if(!req.session.shopping_cart) {
         shopping_cart.push({
