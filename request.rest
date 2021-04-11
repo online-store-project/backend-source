@@ -1,0 +1,6 @@
+POST http://localhost:3000/online-store/add-shopping-cart
+Content-Type: application/json
+
+{
+    "product_id": 7
+}
