@@ -1,6 +1,10 @@
-POST http://localhost:3000/online-store/add-shopping-cart
+POST http://localhost:3000/online-store/addtobasket
 Content-Type: application/json
 
 {
-    "product_id": 7
+    "product_id": 3
 }
+
+###
+
+GET http://localhost:3000/online-store/basket

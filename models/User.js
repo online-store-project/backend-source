@@ -1,5 +1,5 @@
-const { mysql_connection } = require('../config/db_connection');
 const crypto = require('crypto');
+const { mysql_connection } = require('../config/db_connection');
 
 const create_user = (user, result) => {
     if(user.pwd != user.confirm_pwd || user.pwd <= 8) {

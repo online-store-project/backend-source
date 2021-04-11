@@ -38,12 +38,9 @@ function adjust_categoriesbar() {
 function create_username(username) {
     $('<div></div>').addClass('test').append(
         $('<p></p>').addClass('username').text(username),
-        $('<a></a>').attr('href', '/online-store/shopping-cart').append(
+        $('<a></a>').attr('href', '/online-store/basket').append(
             $('<i></i>').addClass('fas fa-shopping-cart')
         )
             
     ).insertBefore('#shop-name');
-}
-function create_shoppingcart_link() {
-    
 }

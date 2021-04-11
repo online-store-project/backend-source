@@ -65,23 +65,6 @@ const clear_cookies = (req, res) => {
         .clearCookie('username')
         .redirect('/online-store/mainpage');
 }
-const addto_shoppingcart = (req, res) => {
-    let shopping_cart = [];
-    if(!req.body.product_id) return res.send('No product chosen');
-
-    if(!req.session.shopping_cart) {
-        shopping_cart.push(req.body.product_id);
-        req.session.shopping_cart = shopping_cart;
-    } else {
-        shopping_cart = req.session.shopping_cart;
-        shopping_cart.push(req.body.product_id);
-    }
-    return res.send('Product added to shopping cart succesfully');
-}
-const shopping_cart = (req, res) => {
-    console.log("testi");
-    res.send('huhuu');
-}
 
 module.exports = {
     registrypage,
@@ -90,7 +73,5 @@ module.exports = {
     login,
     accountpage,
     update_account,
-    clear_cookies,
-    addto_shoppingcart,
-    shopping_cart
+    clear_cookies
 }

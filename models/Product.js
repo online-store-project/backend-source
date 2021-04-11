@@ -5,8 +5,7 @@ const find_all = result => {
     mysql_connection.query(sql, (err, data) => {
         if(err) {
             console.log("Error : " + err);
-            result(null, err);
-            return;
+            return result(err, null)
         }
         result(null, JSON.stringify(data));
     })
@@ -16,8 +15,7 @@ const find_one = (id, result) => {
     mysql_connection.query(sql, [id], (err, data) => {
         if(err) {
             console.log("Error : " + error);
-            result(null, err);
-            return;
+            return result(err, null);
         }
         console.log(data);
         result(null, JSON.stringify(data));
@@ -29,8 +27,7 @@ const find_by_search = (search_term, result) => {
     mysql_connection.query(sql, [term], (err, data) => {
         if(err) {
             console.log("Error : " + error);
-            result(null, err);
-            return;
+            return result(err, null);
         }
         result(null, JSON.stringify(data));
     })
@@ -39,10 +36,21 @@ const find_category = (category_id, result) => {
     let sql = "SELECT * FROM Product WHERE product_typeId = ?";
     mysql_connection.query(sql, [category_id], (err, data) => {
         if(err) {
-            console.log("Error : " + error);
-            result(null, err);
+            console.log("Error : " + err);
+            result(err, null);
             return;
         }
+        result(null, JSON.stringify(data));
+    })
+}
+const find_basket_products = (products, result) => {
+    let sql = "SELECT * FROM Product WHERE productId IN ?"
+    mysql_connection.query(sql, [products], (err, data) => {
+        if(err) {
+            console.log("Error : " + err);
+            return result("Couldn't find products", null)
+        }
+        console.log(data);
         result(null, JSON.stringify(data));
     })
 }
@@ -50,5 +58,6 @@ module.exports = {
     find_all,
     find_by_search,
     find_one,
-    find_category
+    find_category,
+    find_basket_products
 }
