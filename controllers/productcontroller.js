@@ -47,8 +47,9 @@ const find_category = (req, res) => {
 const basketpage = (req, res) => {
     if(!req.session.shopping_cart) return res.render('layouts/basketpage', { title: "Basketpage" });
 
+    console.log(req.session.shopping_cart);
     products.find_basket_products(req.session.shopping_cart, (error, data) => {
-        if(err) {
+        if(error) {
             return res.status(500).send({
                 message:
                     error.message || "Some error"
@@ -57,19 +58,33 @@ const basketpage = (req, res) => {
         console.log(data);
         res.render('layouts/basketpage', { data: data, title: "Basketpage" });
     })
-    res.render('layouts/basketpage', { data: "tssss", title: "Basketpage" });
 }
 const addto_basket = (req, res) => {
     let shopping_cart = [];
+    let check_number = 0;
     if(!req.body.product_id) return res.send('No product chosen');
 
     if(!req.session.shopping_cart) {
-        shopping_cart.push(req.body.product_id);
-        req.session.shopping_cart = shopping_cart;
+        shopping_cart.push({
+            product_id: req.body.product_id,
+            count: 1
+        });
     } else {
         shopping_cart = req.session.shopping_cart;
-        shopping_cart.push(req.body.product_id);
+        for(let value of shopping_cart) {
+            if(value.product_id === req.body.product_id) {
+                value.count++;
+                check_number++;
+            }
+        }
+        if(check_number === 0) {
+            shopping_cart.push({
+                product_id : req.body.product_id,
+                count: 1
+            });
+        }
     }
+    req.session.shopping_cart = shopping_cart;
     return res.send('Product added to shopping cart succesfully');
 }
 
