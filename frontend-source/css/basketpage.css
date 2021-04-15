@@ -1,0 +1,53 @@
+body{
+    width: 80%;
+    margin: auto;
+    background-color:darkgray;
+}
+p.basket-name{
+    margin: 1em;
+    font-weight: bold;
+    color:black;
+    font-size: 140%;
+    text-align: center;
+}
+section{
+    border-radius: 0.375em;
+    padding: 7em;
+    height: auto;
+}
+.box{
+    margin: auto;
+    width: 80%;
+    background-color: gainsboro;
+    height: 35em;
+    border-radius: 0.375em;
+}
+.form{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    padding: 2em;
+    border-radius: 0.375em;
+}
+hr{
+    color: black;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.products{
+    width: 50%;
+    margin: 0;
+    padding-left: 1em;
+}
+.count{
+    width: 25%;
+    margin: 0;
+    text-align: center;
+}
+.price{
+    width: 25%;
+    margin: 0;
+    text-align: center;
+}

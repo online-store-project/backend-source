@@ -10,7 +10,8 @@ p{
 }
 section{
     border-radius: 0.375em;
-    padding: 5em;
+    padding: 7em;
+    height: auto;
 }
 .box{
     margin: auto;

@@ -47,11 +47,11 @@ const find_category = (req, res) => {
 const basketpage = (req, res) => {
     if(!req.session.shopping_cart) return res.render('layouts/basketpage', { title: "Basketpage" });
 
-    console.log(req.session.shopping_cart);
     let array = [];
-    for(let value of req.session.shopping_cart) {
-        array.push(value.product_id);
-    }
+
+    req.session.shopping_cart.forEach(product => {
+        array.push(product.product_id);
+    })
 
     products.find_basket_products(array, (error, data) => {
         if(error) {
@@ -63,7 +63,6 @@ const basketpage = (req, res) => {
         data.forEach(product => {   //lisätään product-objeckteille count-ominaisuus
             if(typeof product === "object") {
                 req.session.shopping_cart.forEach(e => {
-                    console.log(e.product_id);
                     if(e.product_id == product.productId) {
                         product["count"] = e.count;
                     }
@@ -76,7 +75,7 @@ const basketpage = (req, res) => {
 const addto_basket = (req, res) => {
     console.log(req.body.product_id)
 
-    if(!req.body.product_id) return res.send('No product chosen');
+    if(!req.body.product_id) return res.send(false);
 
     let shopping_cart = [];
     let check_number = 0;
@@ -102,7 +101,7 @@ const addto_basket = (req, res) => {
         }
     }
     req.session.shopping_cart = shopping_cart;
-    return res.send('Product added to shopping cart succesfully');
+    return res.send(true);
 }
 
 module.exports = {

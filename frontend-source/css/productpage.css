@@ -11,7 +11,7 @@ section{
     display: flex;
     margin: 0;
     border-radius: 0.375em;
-    height: 39em;
+    height: auto;
 }
 .product-image{
     height: 37em;

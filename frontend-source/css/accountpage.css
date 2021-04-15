@@ -11,6 +11,7 @@ p{
 section{
     border-radius: 0.375em;
     padding: 5em;
+    height: auto;
 }
 .box{
     margin: auto;
