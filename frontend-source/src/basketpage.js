@@ -1,5 +1,3 @@
-import 'jquery';
-
 const check_basket = (data) => {
     if(!data) {
         return;

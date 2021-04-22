@@ -1,5 +1,3 @@
-import 'jquery';
-
 const mainpage_load = (products) => {
     $(document).ready(() => {
         let products_left = document.getElementById('products-left');
