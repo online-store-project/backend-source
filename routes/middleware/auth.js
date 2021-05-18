@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const { jwt_token } = require('../../config/config.js');
 
 const check_authentication = (req, res, next) => {
@@ -15,6 +14,7 @@ const check_authentication = (req, res, next) => {
         res.redirect('/online-store/login');
     }
 }
+
 const sign_token = (user, result) => {
     if(user) {
         let token =jwt.sign(user, jwt_token, {
@@ -25,6 +25,7 @@ const sign_token = (user, result) => {
         result("Tokenin signauksessa häikkää", null)
     }
 }
+
 function verify_token(access_token, result) {
     jwt.verify(access_token, jwt_token, (error, username) => {
         if(error) {
@@ -34,6 +35,7 @@ function verify_token(access_token, result) {
         result(null, username);
     })
 }
+
 module.exports = {
     check_authentication,
     sign_token

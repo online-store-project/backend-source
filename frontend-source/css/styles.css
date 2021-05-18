@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #ff9900, #b36b00);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10rem; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #eee; }
+
+.mainpage-container {
+  max-width: 140rem;
+  background-color: orangered;
+  margin: 0 auto; }
+
+.productpage-container {
+  max-width: 140rem;
+  background-color: blue;
+  margin: 0 auto; }

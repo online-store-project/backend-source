@@ -6,6 +6,7 @@ const adjust_accountpage = (user, message) => {
         }
     })
 }
+
 const get_userinformation = (user) => {
     for(let value of user) {
         $('#username').attr('placeholder', value.username);
@@ -14,6 +15,7 @@ const get_userinformation = (user) => {
         $('#lastname').val(value.lastname);
     }
 }
+
 const print_message = (message) => {
     $('#grid-container').append(
         $('<div></div>').addClass('submit').append(

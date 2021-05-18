@@ -1,5 +1,7 @@
 const mainpage_load = (products) => {
     $(document).ready(() => {
+        //$('#container').addClass('mainpage-container');
+
         let products_left = document.getElementById('products-left');
         let products_right = document.getElementById('products-right');
         let check = 0;

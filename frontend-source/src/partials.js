@@ -1,6 +1,7 @@
 const adjust_partials = () => {
     $(document).ready(() => {
         adjust_categoriesbar();
+
         check_cookie((username) => {
             if(username) {
                 create_navlink('/online-store/account', 'Omat sivut');
@@ -14,15 +15,20 @@ const adjust_partials = () => {
         })
     })
 }
+
 function check_cookie(result) {
     let cookie_value = document.cookie
         .split('; ')
         .find(row => row.startsWith('username='));
+
     if(cookie_value) {
         let username = cookie_value.split('=')[1];
         result(username);
-    } else result(null);
+    } else {
+        result(null);
+    }
 }
+
 function create_navlink(href, text) {
     $('#navbar').append(
         $('<li></li>').addClass('nav-item').append(
@@ -30,11 +36,13 @@ function create_navlink(href, text) {
         )
     )
 }
+
 function adjust_categoriesbar() {
     $('#navbardrop').click(() => {
         $('#categories').slideToggle(200);
     })
 }
+
 function create_username(username) {
     $('<div></div>').addClass('test').append(
         $('<p></p>').addClass('username').text(username),

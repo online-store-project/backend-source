@@ -73,8 +73,6 @@ const basketpage = (req, res) => {
     })
 }
 const addto_basket = (req, res) => {
-    console.log(req.body.product_id)
-
     if(!req.body.product_id) return res.send(false);
 
     let shopping_cart = [];

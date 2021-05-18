@@ -1,66 +1,78 @@
-.jumbo{
+.jumbo {
     border-radius: 0.375em;
     background-color: gainsboro;
     display: grid;
 }
-h1.header{
+
+h1.header {
     margin-top: 2em;
     margin-bottom: 2.3em;
-    text-align: center
+    text-align: center;
 }
-h1.footer{
+
+h1.footer {
     margin-top: 2em;
     margin-bottom: 2em;
     text-align: center
 }
-p.username{
+
+p.username {
     font-style: italic;
     font-weight: bold;
     color:cadetblue;
     font-size: 120%;
     margin-right: 0.5em;
 }
-.navbar{
+
+.navbar {
     margin: 0;
     border-radius: 0.375em;
     background-color: #ccccff;
     align-items: center;
 }
-ul{
+
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
     align-items: center;
 }
+
 a:link, a:visited {
     color:black;
 }
+
 a:link:active, a:visited:active {
     color:white;
 }
-.form-inline{
+
+.form-inline {
     align-self: center;
     margin: 0;
     padding: 0;
 }
-.sidebar{
+
+.sidebar {
     border-radius: 0.375em;
     text-align: center;
     padding: 0;
 }
-footer{
+
+footer {
     height: 10em;
     background-color: #ccccb3;
     border-radius: 0.375em;
 }
-.test{
+
+.test {
     display: flex;
     flex-direction: row;
     margin: 0.5em 1em 0 0;
     justify-content: right;
     align-items: center;
 }
-.fa-shopping-cart{
+
+.fa-shopping-cart {
     font-size: 120%;
     color:cadetblue;
 }

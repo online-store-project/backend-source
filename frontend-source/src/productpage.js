@@ -1,5 +1,7 @@
 const productpage_load = (product) => {
     $(document).ready(() => {
+        //$('#container').addClass('productpage-container');
+
         for(let property of product) {
             $('#product').append(
                 $('<div></div>').addClass('image-div').append(
@@ -16,7 +18,13 @@ const productpage_load = (product) => {
                             cache: false,
                             data: { product_id: property.productId }
                         }).done((data) => {
-                            console.log(data);
+                            if (data === true) {
+                                console.log("pelle");
+                            } else if (data === false) {
+                                console.log("Tuotetta ei valitettavasti onnistuttu lisäämään");
+                            } else {
+                                location.replace('/online-store/login');
+                            }
                         }).fail(() => {
                             window.alert("Can't add product to basket");
                         })
